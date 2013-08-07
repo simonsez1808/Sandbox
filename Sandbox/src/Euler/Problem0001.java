@@ -18,7 +18,7 @@ public class Problem0001 {
 		ArrayList<Integer> divisors = new ArrayList<Integer>();
 		divisors.add(3);
 		divisors.add(5);
-		
+		;
 		for (int i = 0; i < 1000; i++) {
 			if (isDivisibleBy(divisors, i)) {
 				sum += i;
