@@ -14,7 +14,7 @@ public class Problem0001 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int sum = 0;
-		
+		;;;;;;;;;;;;;;
 		ArrayList<Integer> divisors = new ArrayList<Integer>();
 		divisors.add(3);
 		divisors.add(5);
