@@ -6,6 +6,8 @@ object HelloWorld {
     
     println("Hello world");
     
+    println("freddy" + 2)
+    
   }
 
 }
