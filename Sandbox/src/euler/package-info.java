@@ -5,4 +5,4 @@
  * @author Simon
  *
  */
-package Euler;
+package euler;
