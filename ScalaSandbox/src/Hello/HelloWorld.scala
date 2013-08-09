@@ -6,7 +6,7 @@ object HelloWorld {
     
     println("Hello world");
     
-    println("fred2" + 2)
+    println("fred245" + 2)
     
   }
 
