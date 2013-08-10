@@ -3,13 +3,19 @@ package Hello
 object HelloWorld {
 
   def main(args: Array[String]): Unit = {
-    
-    println("Hello world");
-    
-    println("freddymmmmm" + 2)
-    
-    println("fred24523222" + 2)
-    
+    var x = 2;
+    if (x == 2) {
+      println("fred")
+    }
+  }
+  
+  def isPrime(number: Long) : Boolean = {
+
+    if (number == 2)
+      true
+    else
+      false
+ 
   }
   
 
