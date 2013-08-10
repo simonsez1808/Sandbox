@@ -12,19 +12,21 @@ package euler;
 public class Problem0009 {
 
 	public static void main(String[] args) {
-		
+
 		for (long a = 1; a < 1000; a++) {
-			
+
 			for (long b = 1; b < 1000; b++) {
 				Triangle triangle = new Triangle(a, b);
-				
+
 				if (triangle.isPythagorean()
 						&& triangle.getSumOfSides() == 1000) {
-					System.out.println("Found " + triangle.getDescription());
+					System.out.println("Found " + triangle.getDescription()
+							+ " Product of sides = "
+							+ triangle.getProductOfSides());
 				}
-				
+
 			}
-			
+
 		}
 
 	}
@@ -53,5 +55,9 @@ class Triangle {
 
 	String getDescription() {
 		return a + " " + b + " " + c;
+	}
+
+	long getProductOfSides() {
+		return (long) (a * b * c);
 	}
 }
