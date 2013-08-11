@@ -32,6 +32,7 @@ class Problem0011 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Grid.checkRows();
+		Grid.checkColumns();
 	}
 	
 		static final int ELEMENTS_TO_CHECK = 4;
@@ -90,13 +91,12 @@ class Grid {
 	static void checkRows() {
 		
 		for (int row = 0; row < gridBox.length; row++) {
-			System.out.println("Checking row " + row);
+
 			for (int col = 0; col < gridBox[row].length
 					- Problem0011.ELEMENTS_TO_CHECK + 1; col++) {
-				System.out.println("Checking column " + col);
 				int sum = 0;
 				
-				System.out.println("Checking " + col + " to " + (col + Problem0011.ELEMENTS_TO_CHECK - 1));
+				System.out.println("Checking row " + row + " col "+ col + " to " + (col + Problem0011.ELEMENTS_TO_CHECK - 1));
 				for (int i = col; i < col + Problem0011.ELEMENTS_TO_CHECK; i++) {
 					sum += i;
 				}
@@ -112,13 +112,65 @@ class Grid {
 		System.out.println("Maximum value: " + maxVal);
 	};
 
-	void checkColumns() {
+	static void checkColumns() {
+		for (int col = 0; col < gridBox.length; col++) {
+
+			for (int row = 0; row < gridBox.length
+					- Problem0011.ELEMENTS_TO_CHECK + 1; row++) {
+				System.out.println("Checking row " + row);
+				int sum = 0;
+				
+				System.out.println("Checking column " + col + " row " + row + " to " + (row + Problem0011.ELEMENTS_TO_CHECK - 1));
+				for (int i = row; i < row + Problem0011.ELEMENTS_TO_CHECK; i++) {
+					sum += i;
+				}
+				
+				if (sum > maxVal) {
+					maxVal = sum;
+				}
+				
+			}
+			
+		}
+		
+		System.out.println("Maximum value: " + maxVal);
 	};
 
 	void checkDiagonalsLeftToRight() {
+
+		for (int row = 0; row < gridBox.length; row++) {
+			
+			for (int col = 0; col < gridBox[row].length - Problem0011.ELEMENTS_TO_CHECK + 1; col++) {
+				int sum = 0;
+				
+				for (int i = 0; i < Problem0011.ELEMENTS_TO_CHECK; i++) {
+					sum += gridBox[row + i][col + 1];
+				}
+				
+				if (sum > maxVal) {
+					maxVal = sum;
+				}
+			}
+			
+		}
 	};
 
 	void checkDiagonalsRightToLeft() {
+	for (int row = 0; row < gridBox.length; row++) {
+			
+			for (int col = gridBox[row].length - Problem0011.ELEMENTS_TO_CHECK + 1; col > 0; col--) {
+				int sum = 0;
+				
+				for (int i = 0; i < Problem0011.ELEMENTS_TO_CHECK; i++) {
+					sum += gridBox[row + i][col + 1];
+				}
+				
+				if (sum > maxVal) {
+					maxVal = sum;
+				}
+			}
+			
+		}
 	};
 
 }
