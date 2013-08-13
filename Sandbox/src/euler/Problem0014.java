@@ -24,8 +24,8 @@ class Problem0014 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		long startNumber = 13;
-		long workingNumber = 13;
+		long startNumber;
+		long workingNumber;
 		int chainLength = 0;
 		int maxChainLength = 0;
 		long maxNumber = 0;
