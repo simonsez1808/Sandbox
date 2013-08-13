@@ -62,18 +62,13 @@ public class Problem0012 {
 		}
 
 		List<Integer> getDivisors() {
-			// System.out.println("Getting factors for " + value);
+
 			int tempValue = value;
 			List<Integer> result = new ArrayList<Integer>();
 
 			for (int key = 1; key <= tempValue; key++) {
-				// System.out.println("TempVal: " + tempValue + " Key: " + key);
-				if (tempValue % key == 0) {
-					// System.out.println("Dividing");
-					// System.out.println("Checking to see if " + key +
-					// " is in "
-					// + result);
 
+				if (tempValue % key == 0) {
 					result.add(key);
 
 				}
