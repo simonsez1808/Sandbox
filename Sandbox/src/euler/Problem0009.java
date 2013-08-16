@@ -31,33 +31,34 @@ public class Problem0009 {
 
 	}
 
+	static class Triangle {
+
+		private long a;
+		private long b;
+		private double c;
+
+		Triangle(Long a, Long b) {
+			this.a = a;
+			this.b = b;
+			c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+		}
+
+		boolean isPythagorean() {
+			return Math.floor(c) == c;
+		}
+
+		double getSumOfSides() {
+			return (double) (a + b + c);
+		}
+
+		String getDescription() {
+			return a + " " + b + " " + c;
+		}
+
+		long getProductOfSides() {
+			return (long) (a * b * c);
+		}
+	}
+
 }
 
-class Triangle {
-
-	private long a;
-	private long b;
-	private double c;
-
-	Triangle(Long a, Long b) {
-		this.a = a;
-		this.b = b;
-		c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
-	}
-
-	boolean isPythagorean() {
-		return Math.floor(c) == c;
-	}
-
-	double getSumOfSides() {
-		return (double) (a + b + c);
-	}
-
-	String getDescription() {
-		return a + " " + b + " " + c;
-	}
-
-	long getProductOfSides() {
-		return (long) (a * b * c);
-	}
-}
