@@ -14,8 +14,8 @@ public class Problem0015 {
 		// TODO Auto-generated method stub
 
 		for (int i = 1; i < 21; i++) {
-			System.out.println("Side length = " + i + ": "
-					+ new Grid(i).getPaths());
+			Grid grid = new Grid(i);
+			System.out.println(grid.getPaths());
 		}
 	}
 
@@ -27,6 +27,7 @@ public class Problem0015 {
 		}
 
 		BigInteger getPaths() {
+			System.out.println("Grid size " + n + " x " + n);
 			BigInteger term1 = factorial(2 * n);
 			System.out.println("Term1: " + term1);
 			BigInteger term2 = factorial(n).multiply(factorial(n));
@@ -34,17 +35,14 @@ public class Problem0015 {
 			return term1.divide(term2);
 		}
 
-		BigInteger factorial(int n) {
-			BigInteger result = new BigInteger("0");
-//			System.out.println("Factorial of " + n);
-			if (n == 1 || n == 2) {
+		static BigInteger factorial(int n) {
+
+			if (n <= 2) {
 				return new BigInteger(String.valueOf(n));
 			} else {
-//				System.out.println("Result = " + result);
-				result.add(factorial(n - 1).multiply(new BigInteger(Integer.toString(n))));
-//				System.out.println("Result = " + result);
-				return result;
+				return (factorial(n - 1).multiply(new BigInteger(Integer.toString(n))));
 			}
+			
 		}
 
 	}
