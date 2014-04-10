@@ -69,7 +69,7 @@ public class Test1 {
 			HtmlButton newButton = (HtmlButton) page.createElement("button");
 			newButton.setAttribute("type", "submit");
 
-			// append the button to the form
+			// append the button to the formx
 			form.appendChild(newButton);
 
 			System.out.println("Clicking login button");
