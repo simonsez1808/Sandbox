@@ -26,10 +26,20 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class LoadImages {
 
 	private static final boolean APPEND_TO_FILE = true;
-
+private static final int NUMBER_OF_TEST_CYCLES = 10;
+private static final long INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS = 10;
 	public static void main(String[] args)
+	throws FailingHttpStatusCodeException, MalformedURLException, IOException, InterruptedException {
+		
+		for (int i = 0; i < NUMBER_OF_TEST_CYCLES; i++) {
+		runTest();
+		System.out.println("Waiting for " + (INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000) + " secs");
+		
+		Thread.sleep(INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000);
+		}
+	}
 
-	throws FailingHttpStatusCodeException, MalformedURLException, IOException {
+	private static void runTest() throws IOException, MalformedURLException {
 		long start = System.nanoTime();
 		// TODO Auto-generated method stub
 		final WebClient webClient = new WebClient();
@@ -67,7 +77,6 @@ public class LoadImages {
 		writer.newLine();
 		writer.flush();
 		output.close();
-
 	}
 
 }
