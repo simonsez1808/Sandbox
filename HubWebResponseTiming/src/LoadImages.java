@@ -40,6 +40,7 @@ public class LoadImages {
 
 			Thread.sleep(INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000);
 		}
+		
 	}
 
 	private static void runTest() throws IOException, MalformedURLException {
