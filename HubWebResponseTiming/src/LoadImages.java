@@ -25,6 +25,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class LoadImages {
 
+	private static final boolean APPEND_TO_FILE = true;
+
 	public static void main(String[] args)
 
 	throws FailingHttpStatusCodeException, MalformedURLException, IOException {
@@ -41,10 +43,10 @@ public class LoadImages {
 		DomNodeList dml = page0.getElementsByTagName("img");
 		System.out.println(dml.getLength());
 
-		Iterator it = dml.iterator();
+		Iterator<HtmlImage> it = dml.iterator();
 
 		while (it.hasNext()) {
-			HtmlImage image = (HtmlImage) it.next();
+			HtmlImage image = it.next();
 			System.out.println("Source: " + image.getAttribute("src"));
 			BufferedImage loadedImage = ImageIO.read(new URL(
 					"https://www.practiceplan.co.uk/web.nsf/"
@@ -55,7 +57,7 @@ public class LoadImages {
 				/ 1000000000);
 
 		FileWriter output = new FileWriter(
-				"c:/users/simonb/desktop/testwebtimer.txt", true);
+				"c:/users/simonb/desktop/testwebtimer.txt", APPEND_TO_FILE);
 		BufferedWriter writer = new BufferedWriter(output);
 		Calendar cal = Calendar.getInstance();
 		writer.write(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(cal
