@@ -36,7 +36,7 @@ public class LoadImages {
 		for (int i = 0; i < NUMBER_OF_TEST_CYCLES; i++) {
 			runTest();
 			System.out.println("Waiting for "
-					+ (INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000) + " secs");
+					+ (INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS) + " secs");
 
 			Thread.sleep(INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000);
 		}
