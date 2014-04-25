@@ -1,26 +1,18 @@
 package LoadImages;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlImage;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -67,7 +59,7 @@ public class LoadImages {
 					.getPage("https://www.practiceplan.co.uk/home");
 			System.out.println("Page loaded");
 			DomNodeList dml = page0.getElementsByTagName("img");
-			System.out.println(dml.getLength());
+			System.out.println("Found " + dml.getLength() + " images");
 
 			Iterator<HtmlImage> it = dml.iterator();
 

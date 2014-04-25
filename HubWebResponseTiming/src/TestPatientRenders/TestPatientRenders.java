@@ -1,3 +1,5 @@
+package TestPatientRenders;
+
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.MalformedURLException;
@@ -20,6 +22,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
+import credentials.Credentials;
+
 public class TestPatientRenders {
 
 	private static final long TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_MS = 0;
@@ -30,6 +34,8 @@ public class TestPatientRenders {
 			+ TABLE_NAME + "(TestDate TEXT, TestName TEXT, TestTime NUM)";
 	private static final String DROP_TABLE = "DROP TABLE " + TABLE_NAME;
 	private static final String CLEAR_TABLE = "DELETE FROM " + TABLE_NAME;
+	private static final String OUTPUT_FILE_NAME = System
+			.getProperty("user.home") + "/desktop/TestPatientRenderss.dat";
 
 	public static void main(String[] args) throws InterruptedException,
 			ClassNotFoundException, SQLException {
@@ -37,7 +43,7 @@ public class TestPatientRenders {
 		// TODO Auto-generated method stub
 		// register the driver
 
-		Class.forName(DRIVER_NAME);
+		// Class.forName(DRIVER_NAME);
 
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:" + DB_NAME);
 		Calendar testDate = Calendar.getInstance();
@@ -63,7 +69,7 @@ public class TestPatientRenders {
 			HtmlTextInput userName = form.getInputByName("Username");
 			HtmlPasswordInput password = form.getInputByName("Password");
 
-			userName.setText(Credentials.userName);
+		userName.setText(Credentials.userName);
 			password.setText(Credentials.password);
 
 			HtmlButton newButton = (HtmlButton) page.createElement("button");
@@ -78,9 +84,9 @@ public class TestPatientRenders {
 			System.out
 					.println("Login completed. Password change request page has been loaded.");
 
-//			System.out.println("******** PAGE 2 *********\n\n"
-//					+ page2.getWebResponse().getContentAsString()
-//					+ "\n\n******** END OF PAGE 2 *********");
+			// System.out.println("******** PAGE 2 *********\n\n"
+			// + page2.getWebResponse().getContentAsString()
+			// + "\n\n******** END OF PAGE 2 *********");
 			System.out.println("Page 2 response code: "
 					+ page2.getWebResponse().getStatusCode());
 			// TEST 1 STARTs, test 3 start
@@ -106,8 +112,8 @@ public class TestPatientRenders {
 					+ getElapsedTimeInSecs(test1Start) + ")");
 			// The Ajax call info is on the page, so we can parse it out with
 			// rexexp
-			System.out.println("******* PAGE 3 ********\n\n"
-					+ page3.getWebResponse().getContentAsString());
+			// System.out.println("******* PAGE 3 ********\n\n"
+			// + page3.getWebResponse().getContentAsString());
 			Pattern pattern = Pattern.compile("sAjaxSource\": \'(.*)\'");
 
 			Matcher matcher = pattern.matcher(page3.getWebResponse()
@@ -124,7 +130,7 @@ public class TestPatientRenders {
 
 				page4 = webClient.getPage(matcher.group(1));
 				System.out.println(page4.getWebResponse().getContentAsString());
-				System.out.println("Test 2 (get view rendr window data) took "
+				System.out.println("Test 2 (get view render window data) took "
 						+ getElapsedTimeInSecs(test2Start));
 				stmt.execute("INSERT INTO "
 						+ TABLE_NAME
