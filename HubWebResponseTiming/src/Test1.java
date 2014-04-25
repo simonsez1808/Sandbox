@@ -135,7 +135,7 @@ public class Test1 {
 						+ getElapsedTimeInSecs(test3Start) + ")");
 
 			} else {
-				System.out.println("No match found.%n");
+				System.out.println("No match found.");
 			}
 
 			pattern = Pattern.compile("\\[\"(.*?)\".*?(/web.nsf.*?)\"\\]");
