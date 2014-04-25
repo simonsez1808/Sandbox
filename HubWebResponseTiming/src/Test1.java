@@ -69,21 +69,26 @@ public class Test1 {
 			HtmlButton newButton = (HtmlButton) page.createElement("button");
 			newButton.setAttribute("type", "submit");
 
-			// append the button to the formx
+			// append the button to the form
 			form.appendChild(newButton);
 
-			System.out.println("Clicking login button");
+			System.out
+					.println("Clicking login button. This should load the password change request page.");
 			HtmlPage page2 = newButton.click();
-			System.out.println("Login completed. Now loading main page");
-			// Logged in, carry on
-			// System.out.println(page2.getWebResponse().getContentAsString());
+			System.out
+					.println("Login completed. Password change request page has been loaded.");
 
+//			System.out.println("******** PAGE 2 *********\n\n"
+//					+ page2.getWebResponse().getContentAsString()
+//					+ "\n\n******** END OF PAGE 2 *********");
+			System.out.println("Page 2 response code: "
+					+ page2.getWebResponse().getStatusCode());
 			// TEST 1 STARTs, test 3 start
 			long test1Start = System.nanoTime();
 			long test3Start = System.nanoTime();
 
 			// This is the "All Patients" view for the current dentist. Note
-			// that we don't get the patiens here because
+			// that we don't get the patients here because
 			// it's an ajax call and we're not running js
 			HtmlPage page3 = webClient
 					.getPage("https://www.practiceplan.co.uk/web.nsf/wqo_page?openagent&id=285DC36A46B2843680257BF7002ED6F2");
@@ -101,6 +106,8 @@ public class Test1 {
 					+ getElapsedTimeInSecs(test1Start) + ")");
 			// The Ajax call info is on the page, so we can parse it out with
 			// rexexp
+			System.out.println("******* PAGE 3 ********\n\n"
+					+ page3.getWebResponse().getContentAsString());
 			Pattern pattern = Pattern.compile("sAjaxSource\": \'(.*)\'");
 
 			Matcher matcher = pattern.matcher(page3.getWebResponse()
@@ -139,6 +146,7 @@ public class Test1 {
 			}
 
 			pattern = Pattern.compile("\\[\"(.*?)\".*?(/web.nsf.*?)\"\\]");
+
 			matcher = pattern.matcher(page4.getWebResponse()
 					.getContentAsString());
 
