@@ -20,7 +20,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
-public class Test1 {
+public class TestPatientRenders {
 
 	private static final long TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_MS = 0;
 	private static final String DRIVER_NAME = "org.sqlite.JDBC";
