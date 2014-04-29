@@ -38,6 +38,7 @@ public class LoadImages {
 
 			Thread.sleep(INTERVAL_BETWEEN_EACH_TEST_CYCLE_SECS * 1000);
 		}
+		
 		System.out.println("Output was sent to " + OUTPUT_FILE_PATH);
 	}
 
@@ -49,7 +50,6 @@ public class LoadImages {
 		long start = System.nanoTime();
 		try {
 
-			// TODO Auto-generated method stub
 			final WebClient webClient = new WebClient();
 			System.out.println("Web client timeout is set to "
 					+ webClient.getOptions().getTimeout());

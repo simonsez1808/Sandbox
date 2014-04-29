@@ -28,7 +28,7 @@ import credentials.Credentials;
 
 public class TestPatientRendersToFlatFile {
 
-	private static final long TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_MS = 0;
+	private static final long TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_SECS = 10;
 	private static final long NUMBER_OF_ITERATIONS = 40;
 	private static final String OUTPUT_FILE_PATH = System
 			.getProperty("user.home") + "/desktop/TestPatientRenderss.dat";
@@ -37,14 +37,16 @@ public class TestPatientRendersToFlatFile {
 	public static void main(String[] args) throws InterruptedException,
 			IOException {
 
+		for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
+			System.out.println("Starting test number " + (i + 1) + " of " + NUMBER_OF_ITERATIONS);
+			runTest();
+		}
 
-
-		runTest();
-
+		System.out.println("* * * * * * * * TEST RUN COMPLETED * * * * * * * * ");
 	}
 
-	private static void runTest() throws IOException,
-			InterruptedException {
+	private static void runTest() throws IOException, InterruptedException {
+		
 		final Calendar testDate = Calendar.getInstance();
 		final WebClient webClient = new WebClient();
 		System.out.println("Web client timeout is set to "
@@ -77,7 +79,6 @@ public class TestPatientRendersToFlatFile {
 			System.out
 					.println("Login completed. Password change request page has been loaded.");
 
-		
 			System.out.println("Page 2 response code: "
 					+ page2.getWebResponse().getStatusCode());
 			// TEST 1 STARTs, test 3 start
@@ -112,10 +113,11 @@ public class TestPatientRendersToFlatFile {
 			// Now we have the Ajax URL for the JSON for the entire data table
 			// that shows individial patints and their plans
 			TextPage page4 = null;
-			
+
 			if (matcher.find()) {
 				System.out.println(matcher.group(1));
-				System.out.println("Test 2 (get view render window data) is starting ");
+				System.out
+						.println("Test 2 (get view render window data) is starting ");
 				long test2Start = System.nanoTime();
 				page4 = webClient.getPage(matcher.group(1));
 				System.out.println(page4.getWebResponse().getContentAsString());
@@ -143,11 +145,12 @@ public class TestPatientRendersToFlatFile {
 					.getContentAsString());
 
 			while (matcher.find()) {
-		//		System.out.println(matcher.group(2));
+				// System.out.println(matcher.group(2));
 				String url = "https://www.practicePlan.co.uk"
 						+ matcher.group(2);
 				System.out
-						.println("Test4 starting - retrieving a patient's details - patient name: " + matcher.group(1));
+						.println("Test4 starting - retrieving a patient's details - patient name: "
+								+ matcher.group(1));
 				long test4Start = System.nanoTime();
 				HtmlPage page5 = webClient.getPage(url);
 				System.out.println("Test4 (getting a patient's details) took "
@@ -157,15 +160,15 @@ public class TestPatientRendersToFlatFile {
 						+ "|Test4|"
 						+ getElapsedTimeInSecs(test4Start));
 				writer.newLine();
-				Thread.sleep(TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_MS);
-				//System.out.println(page5.getWebResponse().getContentAsString());
+			// System.out.println(page5.getWebResponse().getContentAsString());
 			}
 
-			
 			writer.flush();
 			writer.close();
+
+			System.out.println("Pausing for " + TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_SECS);
+			Thread.sleep(TIME_TO_WAIT_BETWEEN_PATIENT_RECORD_RETRIEVAL_SECS * 1000);
 			
-			System.out.println("Test completed.");
 
 		} catch (ConnectException e) {
 			System.out.println("Connection timed out - " + e.getMessage());
