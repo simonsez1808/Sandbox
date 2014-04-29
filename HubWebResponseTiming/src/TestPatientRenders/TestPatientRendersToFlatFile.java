@@ -103,8 +103,8 @@ public class TestPatientRendersToFlatFile {
 			writer.newLine();
 			// The Ajax call info is on the page, so we can parse it out with
 			// rexexp
-			// System.out.println("******* PAGE 3 ********\n\n"
-			// + page3.getWebResponse().getContentAsString());
+			 System.out.println("******* PAGE 3 ********\n\n"
+			 + page3.getWebResponse().getContentAsString());
 			Pattern pattern = Pattern.compile("sAjaxSource\": \'(.*)\'");
 
 			Matcher matcher = pattern.matcher(page3.getWebResponse()
