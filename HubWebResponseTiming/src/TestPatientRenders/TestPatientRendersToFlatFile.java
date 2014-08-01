@@ -103,8 +103,8 @@ public class TestPatientRendersToFlatFile {
 			writer.newLine();
 			// The Ajax call info is on the page, so we can parse it out with
 			// rexexp
-			 System.out.println("******* PAGE 3 ********\n\n"
-			 + page3.getWebResponse().getContentAsString());
+			// System.out.println("******* PAGE 3 ********\n\n"
+			// + page3.getWebResponse().getContentAsString());
 			Pattern pattern = Pattern.compile("sAjaxSource\": \'(.*)\'");
 
 			Matcher matcher = pattern.matcher(page3.getWebResponse()
@@ -120,7 +120,7 @@ public class TestPatientRendersToFlatFile {
 						.println("Test 2 (get view render window data) is starting ");
 				long test2Start = System.nanoTime();
 				page4 = webClient.getPage(matcher.group(1));
-				System.out.println(page4.getWebResponse().getContentAsString());
+				//System.out.println(page4.getWebResponse().getContentAsString());
 				System.out.println("Test 2 (get view render window data) took "
 						+ getElapsedTimeInSecs(test2Start));
 				writer.write(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
