@@ -13,7 +13,7 @@ public class PatientsOnColorado extends NotesThread {
 			System.out.println("Next");
 
 			// Get hold of Colorado
-			System.out.println("stage 1");
+			System.out.println("Creating session with automatic logon.");
 			Session session = NotesFactory.createSession((String) null,
 					(String) null, Credentials.PASSWORD);
 			System.out.println("stage 2");
