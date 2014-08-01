@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Vector;
 
+import uk.co.pp.Credentials;
 import lotus.domino.*;
 
 public class PatientsOnColorado extends NotesThread {
