@@ -8,7 +8,7 @@ public class PatientsOnColorado extends NotesThread {
 	public static void main(String argv[]) {
 
 		try {
-			System.out.println("Starting...");
+			System.out.println("Starting. .");
 			NotesThread.sinitThread();
 			System.out.println("Next");
 
