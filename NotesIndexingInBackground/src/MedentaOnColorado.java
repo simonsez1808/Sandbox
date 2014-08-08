@@ -92,6 +92,7 @@ public class MedentaOnColorado extends NotesThread {
 				long durationSecs = (endIndex - startIndex) / 1000;
 				long minutes = durationSecs / 60;
 				long secs = durationSecs % 60;
+				
 				if (!isQuiet) {
 					System.out.println("Completed indexing view "
 							+ view.getName() + ", time taken = " + minutes
