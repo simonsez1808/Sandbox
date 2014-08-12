@@ -7,7 +7,7 @@ import java.util.Vector;
 import uk.co.pp.Credentials;
 import lotus.domino.*;
 
-public class MedentaOnColorado extends NotesThread {
+public class ReindexSundryApplications extends NotesThread {
 
 	static Session session;
 	static String applicationNames[][] = {
@@ -80,8 +80,8 @@ public class MedentaOnColorado extends NotesThread {
 			View view = allViews.get(i);
 
 			if (!isQuiet) {
-				System.out.println("Starting to index view " + (i + 1) + "("
-						+ view.getName() + ") of " + allViews.size());
+				System.out.println("Starting to index view # " + (i + 1) + " of " + allViews.size() + " named "
+						+ view.getName());
 				// System.out.println("View has " + view.getEntryCount()
 				// + " view entries.");
 
