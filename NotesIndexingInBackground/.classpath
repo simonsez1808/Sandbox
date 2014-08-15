@@ -3,5 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/IBMNotes/Notes/jvm/lib/ext/Notes.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Utils"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

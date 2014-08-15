@@ -23,8 +23,8 @@ public class ReindexSundryApplications extends NotesThread {
 			// Contacts
 			{ LOCAL_SERVER, "PARAJAN14\\pp_contacts.nsf" },
 			{ "NDCOLORADO", "PARAJAN14\\pp_contacts.nsf" },
-			{ LOCAL_SERVER, "PARAJAN14\\pp_contacts.nsf" },
-			{ "NDCOLORADO", "PARAJAN14\\pp_contacts.nsf" },
+			{ LOCAL_SERVER, "PARAOCT13\\pp_contacts.nsf" },
+			{ "NDCOLORADO", "PARAOCT13\\pp_contacts.nsf" },
 			{ "NDGEMINI", "2009SYSTEM1\\pp_contacts.nsf" },
 			{ "NDDSVRM", "2009SYSTEM1\\pp_contacts.nsf" },
 			// Patients
@@ -33,7 +33,7 @@ public class ReindexSundryApplications extends NotesThread {
 			{ LOCAL_SERVER, "PARAOCT13\\pp_patients.nsf" },
 			{ "NDCOLORADO", "PARAOCT13\\pp_patients.nsf" },
 			{ "NDGEMINI", "2009SYSTEM1\\pp_patients.nsf" },
-			{ "NDDSVRM", "2009SYSTEM1\\pp_patients.nsf" }, };
+			{ "NDDSVRM", "2009SYSTEM1\\pp_patients.nsf" } };
 
 	static boolean isQuiet;
 
@@ -59,14 +59,14 @@ public class ReindexSundryApplications extends NotesThread {
 			System.out.println(session.getCommonUserName());
 
 			for (int i = 0; i < applicationNames.length; i++) {
-				
+
 				try {
 					reindexNotesApplication(applicationNames[i][0],
 							applicationNames[i][1]);
 				} catch (Exception e) {
 					System.out.println("ERROR: " + e.getMessage());
 				}
-				
+
 			}
 
 		} catch (Exception e) {
@@ -99,27 +99,19 @@ public class ReindexSundryApplications extends NotesThread {
 			View view = allViews.get(i);
 
 			if (!isQuiet) {
-				System.out
-						.println("Starting to index view # " + (i + 1) + " of "
-								+ allViews.size() + " named " + view.getName());
-				// System.out.println("View has " + view.getEntryCount()
-				// + " view entries.");
+				System.out.println("Starting to index view # " + (i + 1)
+						+ " of " + allViews.size() + " named " + "\""
+						+ view.getName() + "\"");
 
-				long startIndex = System.currentTimeMillis();
+				long startTimeMillisecs = System.currentTimeMillis();
 				view.refresh();
-				long endIndex = System.currentTimeMillis();
-
-				long durationSecs = (endIndex - startIndex) / 1000;
-				long minutes = durationSecs / 60;
-				long secs = durationSecs % 60;
 
 				if (!isQuiet) {
 					System.out.println("Completed indexing view "
 							+ view.getName()
 							+ ", time taken = "
-							+ (minutes > 0 ? minutes + " min"
-									+ (minutes > 1 ? "s " : " ") : "") + secs
-							+ " seconds ");
+							+ Utils.getDurationAsText(startTimeMillisecs,
+									System.currentTimeMillis()));
 				}
 
 			}
