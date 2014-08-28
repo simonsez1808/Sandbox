@@ -1,11 +1,12 @@
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
+import lotus.domino.Database;
+import lotus.domino.NotesFactory;
+import lotus.domino.NotesThread;
+import lotus.domino.Session;
+import lotus.domino.View;
 import uk.co.pp.Credentials;
-import lotus.domino.*;
 
 public class ReindexSundryApplications extends NotesThread {
 
