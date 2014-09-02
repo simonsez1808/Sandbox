@@ -11,34 +11,33 @@ import uk.co.pp.Credentials;
 public class ReindexSundryApplications extends NotesThread {
 
 	//
-	
+
 	static Session session;
 	static final String LOCAL_SERVER = "";
 
 	static String applicationNames[][] = {
 
 			// Auddis
-			//{ "NDCOLORADO", "PARAOCT13\\pp_auddis.nsf" },
-			//{ LOCAL_SERVER, "PARAOCT13\\pp_auddis.nsf" },
+			{ "NDCOLORADO", "PARAOCT13\\pp_auddis.nsf" },
+			{ LOCAL_SERVER, "PARAOCT13\\pp_auddis.nsf" },
 			// PP_Admin
-			//{ "NDGEMINI", "2009System1\\pp_admin.nsf" },
-			//{ "NDDSVRM", "2009System1\\pp_admin.nsf" },
+			{ "NDGEMINI", "2009System1\\pp_admin.nsf" },
+			{ "NDDSVRM", "2009System1\\pp_admin.nsf" },
 			// Contacts
-			//{ LOCAL_SERVER, "PARAJAN14\\pp_contacts.nsf" },
-			//{ "NDCOLORADO", "PARAJAN14\\pp_contacts.nsf" },
-			//{ LOCAL_SERVER, "PARAOCT13\\pp_contacts.nsf" },
-			//{ "NDCOLORADO", "PARAOCT13\\pp_contacts.nsf" },
-			//{ "NDGEMINI", "2009SYSTEM1\\pp_contacts.nsf" },
-			//{ "NDDSVRM", "2009SYSTEM1\\pp_contacts.nsf" },
+			{ LOCAL_SERVER, "PARAJAN14\\pp_contacts.nsf" },
+			{ "NDCOLORADO", "PARAJAN14\\pp_contacts.nsf" },
+			{ LOCAL_SERVER, "PARAOCT13\\pp_contacts.nsf" },
+			{ "NDCOLORADO", "PARAOCT13\\pp_contacts.nsf" },
+			{ "NDGEMINI", "2009SYSTEM1\\pp_contacts.nsf" },
+			{ "NDDSVRM", "2009SYSTEM1\\pp_contacts.nsf" },
 			// Patients
-			//{ LOCAL_SERVER, "PARAJAN14\\pp_patients.nsf" },
-			//{ "NDCOLORADO", "PARAJAN14\\pp_patients.nsf" },
-			//{ LOCAL_SERVER, "PARAOCT13\\pp_patients.nsf" },
-			//{ "NDCOLORADO", "PARAOCT13\\pp_patients.nsf" },
-			//{ "NDGEMINI", "2009SYSTEM1\\pp_patients.nsf" },
-			//{ "NDDSVRM", "2009SYSTEM1\\pp_patients.nsf" },
-		{ "NDGemini", "2009SYSTEM1\\Medenta_Contacts.nsf"},
-		};
+			{ LOCAL_SERVER, "PARAJAN14\\pp_patients.nsf" },
+			{ "NDCOLORADO", "PARAJAN14\\pp_patients.nsf" },
+			{ LOCAL_SERVER, "PARAOCT13\\pp_patients.nsf" },
+			{ "NDCOLORADO", "PARAOCT13\\pp_patients.nsf" },
+			{ "NDGEMINI", "2009SYSTEM1\\pp_patients.nsf" },
+			{ "NDDSVRM", "2009SYSTEM1\\pp_patients.nsf" },
+			{ "NDGemini", "2009SYSTEM1\\Medenta_Contacts.nsf" }, };
 
 	static boolean isQuiet;
 
