@@ -2,7 +2,6 @@ package euler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 /*
@@ -62,8 +61,8 @@ public class Problem0018 {
 		list = setup();
 
 		int maxIdx = 0;
-		int maxSum = 0;
-		int maxVal = 0;
+	//	int maxSum = 0;
+	//	int maxVal = 0;
 		int sum = 0;
 		List<Integer> numbersChosen = new ArrayList<Integer>();
 
