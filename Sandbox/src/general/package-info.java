@@ -5,4 +5,4 @@
  * @author simonb
  *
  */
-package General;
+package general;

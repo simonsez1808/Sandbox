@@ -22,7 +22,7 @@ import java.util.List;
 class Problem0014 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
 		long startNumber = 13;
 		long workingNumber = 13;
