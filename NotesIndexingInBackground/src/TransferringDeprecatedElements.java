@@ -11,7 +11,6 @@ import lotus.domino.NotesFactory;
 import lotus.domino.NotesThread;
 import lotus.domino.Session;
 import lotus.domino.NoteCollection;
-import lotus.domino.View;
 
 /**
  * @author simonb
