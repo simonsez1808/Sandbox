@@ -69,7 +69,7 @@ private static final long MAX_BUFFER_LENGTH = 128;
 
 	Patterniser() {
 		patterns.put("RBRB", "B");
-		patterns.put("BRBR", "R");
+		patterns.put("BRBR", "R");http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1023
 		nudgedNumbers = new LinkedList<Number>();
 	}
 
@@ -92,6 +92,7 @@ private static final long MAX_BUFFER_LENGTH = 128;
 				
 			}
 		}
+		return null;
 		
 	}
 	void pop(){}
