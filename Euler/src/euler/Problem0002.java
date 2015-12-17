@@ -19,7 +19,7 @@ public class Problem0002 {
 	static List<Long> fibMap = new ArrayList<Long>();
 	static final long LIMIT = 4000000;
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		fibMap.add(new Long(1));
 		fibMap.add(new Long(2));
