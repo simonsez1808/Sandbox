@@ -17,7 +17,8 @@ public class Lambda1 {
 		}
 		       
 		// Using lambda expression and functional operations
-		players.forEach((player) -> System.out.print(player + "fred"));
+		System.out.println("***************************************************************");
+		players.forEach((player) -> System.out.println(player + " **fred"));
 		 
 		// Using double colon operator in Java 8
 		players.forEach(System.out::println);
