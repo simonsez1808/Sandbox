@@ -9,7 +9,7 @@ package com.mobile.nectar;
  *
  * @author aboulton
  */
-public class NectarOffer {
+public class NectarOffer { 
 
     private String treatment_code;
     private String coupon_id;
