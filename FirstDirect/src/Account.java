@@ -27,7 +27,7 @@ public class Account {
 		// System.out.println(htmlPage.asXml());
 		System.out.println(htmlPage.getAnchors());
 		HtmlTextInput input = htmlPage.getElementByName("userid");
-		input.setText(Credentials.getUserName());
+		 input.setText(Credentials.getUserName());
 		System.out.println("Attempting with " + Credentials.getUserName());
 		
 		for (HtmlAnchor htmlAnchor : htmlPage.getAnchors()) {
