@@ -120,7 +120,13 @@ public class Problem0018 {
 		
 		System.out.println("Last sum " + lastSum);
 	}
-
+private static Integer getIndexOfHighestNumber(Integer previousHighestIndex) {
+	if (previousHighestIndex == null) {
+		return 0;
+	}
+	
+	//
+}
 	private static List<List<Integer>> setup() {
 		List<List<Integer>> list = new ArrayList<List<Integer>>();
 		list.add(new ArrayList<Integer>(Arrays.asList(75)));
