@@ -68,12 +68,14 @@ public class Problem0018 {
 			List<Integer> row = new ArrayList<Integer>(pyramid.get(rowNum));
 
 			System.out.println("Checking row " + rowNum);
-
+			previousHighestIndex = getIndexOfHighestNumber(row, previousHighestIndex);
+			System.out.println("Index: " + previousHighestIndex + " Value: " + row.get(previousHighestIndex));
 		}
 
 	}
 
 	private static Integer getIndexOfHighestNumber(List<Integer> row, Integer previousHighestIndex) {
+		
 		if (previousHighestIndex == null) {
 			return 0;
 		}
@@ -81,9 +83,9 @@ public class Problem0018 {
 		// Now, the candidates in this row are the previous highest number and
 		// the next one
 		if (row.get(previousHighestIndex) > row.get(previousHighestIndex + 1)) {
-			return row.get(previousHighestIndex);
+			return previousHighestIndex;
 		} else {
-			return row.get(previousHighestIndex + 1);
+			return previousHighestIndex + 1;
 		}
 	}
 
