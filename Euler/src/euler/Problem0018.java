@@ -63,20 +63,18 @@ public class Problem0018 {
 		List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
 		pyramid = setup();
 		Integer previousHighestIndex = null;
-		
+
 		for (int rowNum = 0; rowNum < pyramid.size(); rowNum++) {
-			
-			List<Integer> row = new ArrayList<Integer>(pyramid.get(rowNum));
 
 			System.out.println("Checking row " + rowNum);
-			previousHighestIndex = getIndexOfHighestNumber(row, previousHighestIndex);
-			System.out.println("Index: " + previousHighestIndex + " Value: " + row.get(previousHighestIndex));
+			previousHighestIndex = getIndexOfHighestNumber(pyramid.get(rowNum), previousHighestIndex);
+			System.out.println("Index: " + previousHighestIndex + " Value: " + pyramid.get(rowNum).get(previousHighestIndex));
 		}
 
 	}
 
 	private static Integer getIndexOfHighestNumber(List<Integer> row, Integer previousHighestIndex) {
-		
+
 		if (previousHighestIndex == null) {
 			return 0;
 		}
@@ -86,7 +84,8 @@ public class Problem0018 {
 		if (row.get(previousHighestIndex) > row.get(previousHighestIndex + 1)) {
 			return previousHighestIndex;
 		}
-			return previousHighestIndex + 1;
+		
+		return previousHighestIndex + 1;
 	}
 
 	private static List<List<Integer>> setup() {
