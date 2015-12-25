@@ -63,6 +63,7 @@ public class Problem0018 {
 		List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
 		pyramid = setup();
 		Integer previousHighestIndex = null;
+		
 		for (int rowNum = 0; rowNum < pyramid.size(); rowNum++) {
 			
 			List<Integer> row = new ArrayList<Integer>(pyramid.get(rowNum));
@@ -84,9 +85,8 @@ public class Problem0018 {
 		// the next one
 		if (row.get(previousHighestIndex) > row.get(previousHighestIndex + 1)) {
 			return previousHighestIndex;
-		} else {
-			return previousHighestIndex + 1;
 		}
+			return previousHighestIndex + 1;
 	}
 
 	private static List<List<Integer>> setup() {
