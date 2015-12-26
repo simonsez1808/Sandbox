@@ -57,7 +57,7 @@ import java.util.List;
  */
 
 public class Problem0018 {
-
+//
 	static List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
 
 	public static void main(String[] args) {
