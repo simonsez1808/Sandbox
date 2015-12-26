@@ -58,19 +58,21 @@ import java.util.List;
 
 public class Problem0018 {
 
+	static List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
-		pyramid = setup();
 		Integer previousHighestIndex = null;
+		Integer thisRowHighestIndex;
+		Integer sumOfValues = 0;
 
-		for (int rowNum = 0; rowNum < pyramid.size(); rowNum++) {
-
-			System.out.println("Checking row " + rowNum);
-			previousHighestIndex = getIndexOfHighestNumber(pyramid.get(rowNum), previousHighestIndex);
-			System.out.println("Index: " + previousHighestIndex + " Value: " + pyramid.get(rowNum).get(previousHighestIndex));
+		for (int rowNum = pyramid.size() - 1; rowNum > -1; rowNum--) {
+			thisRowHighestIndex = getIndexOfHighestNumber(pyramid.get(rowNum), previousHighestIndex);
+			System.out.println("Row: " + rowNum + " Index: " + thisRowHighestIndex + " Value: "
+					+ pyramid.get(rowNum).get(thisRowHighestIndex));
+			sumOfValues += pyramid.get(rowNum).get(thisRowHighestIndex);
+			previousHighestIndex = thisRowHighestIndex;
 		}
-
+		System.out.println("Sum of values: " + sumOfValues);
 	}
 
 	private static Integer getIndexOfHighestNumber(List<Integer> row, Integer previousHighestIndex) {
@@ -84,27 +86,26 @@ public class Problem0018 {
 		if (row.get(previousHighestIndex) > row.get(previousHighestIndex + 1)) {
 			return previousHighestIndex;
 		}
-		
+
 		return previousHighestIndex + 1;
 	}
 
-	private static List<List<Integer>> setup() {
-		List<List<Integer>> list = new ArrayList<List<Integer>>();
-		list.add(new ArrayList<Integer>(Arrays.asList(75)));
-		list.add(new ArrayList<Integer>(Arrays.asList(95, 64)));
-		list.add(new ArrayList<Integer>(Arrays.asList(17, 47, 82)));
-		list.add(new ArrayList<Integer>(Arrays.asList(18, 35, 87, 10)));
-		list.add(new ArrayList<Integer>(Arrays.asList(20, 4, 82, 47, 65)));
-		list.add(new ArrayList<Integer>(Arrays.asList(19, 1, 23, 75, 3, 34)));
-		list.add(new ArrayList<Integer>(Arrays.asList(88, 2, 77, 73, 7, 63, 67)));
-		list.add(new ArrayList<Integer>(Arrays.asList(99, 65, 4, 28, 6, 16, 70, 92)));
-		list.add(new ArrayList<Integer>(Arrays.asList(41, 41, 26, 56, 83, 40, 80, 70, 33)));
-		list.add(new ArrayList<Integer>(Arrays.asList(41, 48, 72, 33, 47, 32, 37, 16, 94, 29)));
-		list.add(new ArrayList<Integer>(Arrays.asList(53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14)));
-		list.add(new ArrayList<Integer>(Arrays.asList(70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57)));
-		list.add(new ArrayList<Integer>(Arrays.asList(91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48)));
-		list.add(new ArrayList<Integer>(Arrays.asList(63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31)));
-		list.add(new ArrayList<Integer>(Arrays.asList(04, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23)));
-		return list;
+	static {
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(75)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(95, 64)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(17, 47, 82)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(18, 35, 87, 10)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(20, 4, 82, 47, 65)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(19, 1, 23, 75, 3, 34)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(88, 2, 77, 73, 7, 63, 67)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(99, 65, 4, 28, 6, 16, 70, 92)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(41, 41, 26, 56, 83, 40, 80, 70, 33)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(41, 48, 72, 33, 47, 32, 37, 16, 94, 29)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31)));
+		pyramid.add(new ArrayList<Integer>(Arrays.asList(04, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23)));
+
 	}
 }
