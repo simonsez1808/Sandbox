@@ -57,37 +57,25 @@ import java.util.List;
  */
 
 public class Problem0018 {
-//
+	//
 	static List<List<Integer>> pyramid = new ArrayList<List<Integer>>();
 
 	public static void main(String[] args) {
-		Integer previousHighestIndex = null;
-		Integer thisRowHighestIndex;
-		Integer sumOfValues = 0;
+		
+		for (int rowNum = pyramid.size() - 2; rowNum >= 0; rowNum--) {
+			List<Integer> row = pyramid.get(rowNum);
+			List<Integer> lowerRow = pyramid.get(rowNum + 1);
+			
+			// For each row, replace each element with the sum of itself and the larger of its two
+			// children
+			for (int i = 0; i < row.size(); i++){
+				row.set(i, row.get(i) + Math.max(lowerRow.get(i), lowerRow.get(i + 1)));
+			}
+			
+			pyramid.remove(rowNum + 1);
 
-		for (int rowNum = pyramid.size() - 1; rowNum >= 0; rowNum--) {
-			thisRowHighestIndex = getIndexOfHighestNumber(pyramid.get(rowNum), previousHighestIndex);
-			System.out.println("Row: " + rowNum + " Index: " + thisRowHighestIndex + " Value: "
-					+ pyramid.get(rowNum).get(thisRowHighestIndex));
-			sumOfValues += pyramid.get(rowNum).get(thisRowHighestIndex);
-			previousHighestIndex = thisRowHighestIndex;
 		}
-		System.out.println("Sum of values: " + sumOfValues);
-	}
-
-	private static Integer getIndexOfHighestNumber(List<Integer> row, Integer previousHighestIndex) {
-
-		if (previousHighestIndex == null) {
-			return 0;
-		}
-
-		// Now, the candidates in this row are the previous highest number and
-		// the next one
-		if (row.get(previousHighestIndex) > row.get(previousHighestIndex + 1)) {
-			return previousHighestIndex;
-		}
-
-		return previousHighestIndex + 1;
+		System.out.println("Answer is " + pyramid.get(0).get(0));
 	}
 
 	static {
