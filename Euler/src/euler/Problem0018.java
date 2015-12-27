@@ -65,7 +65,7 @@ public class Problem0018 {
 		Integer thisRowHighestIndex;
 		Integer sumOfValues = 0;
 
-		for (int rowNum = pyramid.size() - 1; rowNum > -1; rowNum--) {
+		for (int rowNum = pyramid.size() - 1; rowNum >= 0; rowNum--) {
 			thisRowHighestIndex = getIndexOfHighestNumber(pyramid.get(rowNum), previousHighestIndex);
 			System.out.println("Row: " + rowNum + " Index: " + thisRowHighestIndex + " Value: "
 					+ pyramid.get(rowNum).get(thisRowHighestIndex));
