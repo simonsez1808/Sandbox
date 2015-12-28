@@ -27,68 +27,70 @@ public class Problem0019 {
 			if (myDate.isSundayAnd1stOfTheMonth() && myDate.year > 1900) {
 				count++;
 			}
-			
+
 			myDate.increment();
 		}
-		
+
 		System.out.println(count);
 	}
 
-}
+	static class MyDate {
+		int dayOfWeek;
+		int day;
+		int month;
+		int year;
 
-class MyDate {
-	int dayOfWeek;
-	int day;
-	int month;
-	int year;
-
-	MyDate() {
-		dayOfWeek = 0;
-		day = 1;
-		month = 1;
-		year = 1900;
-	}
-
-	private boolean isLeapYear() {
-		if (year % 4 != 0) {
-			return false;
-		}
-
-		if (year % 100 == 0 && year % 400 != 0) {
-			return false;
-		}
-
-		return true;
-	}
-
-	public String toString() {
-		return Problem0019.daysOfWeek[dayOfWeek] + ", " + day + "/" + month + "/" + year;
-	}
-
-	public boolean isSundayAnd1stOfTheMonth() {
-		return dayOfWeek == 6 && day == 1;
-	}
-
-	void increment() {
-
-		if (month == 1 && isLeapYear()) {
-			Problem0019.months[1] = 29;
-		} else {
-			Problem0019.months[1] = 28;
-		}
-
-		dayOfWeek = (dayOfWeek + 1) % 7;
-		day++;
-
-		if (day > Problem0019.months[month - 1]) {
+		MyDate() {
+			dayOfWeek = 0;
 			day = 1;
-			month++;
+			month = 1;
+			year = 1900;
 		}
 
-		if (month > 12) {
-			month = 1;
-			year++;
+		private boolean isLeapYear() {
+			
+			if (year % 4 != 0) {
+				return false;
+			}
+
+			if (year % 100 == 0 && year % 400 != 0) {
+				return false;
+			}
+
+			return true;
 		}
+
+		public String toString() {
+			return Problem0019.daysOfWeek[dayOfWeek] + ", " + day + "/" + month + "/" + year;
+		}
+
+		public boolean isSundayAnd1stOfTheMonth() {
+			return dayOfWeek == 6 && day == 1;
+		}
+
+		void increment() {
+
+			if (month == 1 && isLeapYear()) {
+				Problem0019.months[1] = 29;
+			} else {
+				Problem0019.months[1] = 28;
+			}
+
+			dayOfWeek = (dayOfWeek + 1) % 7;
+			day++;
+
+			if (day > Problem0019.months[month - 1]) {
+				day = 1;
+				month++;
+			}
+
+			if (month > 12) {
+				month = 1;
+				year++;
+			}
+		}
+
 	}
 
 }
+
