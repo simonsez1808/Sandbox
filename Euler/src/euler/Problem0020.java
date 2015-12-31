@@ -15,7 +15,7 @@ public class Problem0020 {
 		// TODO Auto-generated method stub
 		final String number = "100";
 		System.out.println("Factorial(100): " + factorial(new BigInteger(number)));
-		System.out.println(getSumOfDigits(factorial(new BigInteger(number))));
+		System.out.println("Sum of digits: " + getSumOfDigits(factorial(new BigInteger(number))));
 	}
 	
 	private static long getSumOfDigits(BigInteger arg) {
