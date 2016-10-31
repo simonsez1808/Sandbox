@@ -15,7 +15,7 @@ public class RunIndexer {
 		NotesThread.sinitThread();
 
 		Session session = NotesFactory.createSession((String) null,
-				(String) null, "3edcvfr$");
+				(String) null, Authentication.getInfo());
 
 		System.out.println("Effective user name: " + session.getEffectiveUserName());
 
