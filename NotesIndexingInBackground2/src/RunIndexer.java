@@ -31,30 +31,31 @@ public class RunIndexer {
 			System.out.println ("Unable to open database ");
 			return 0;
 		}
-		
+
 		System.out.println("Database is open");
-		
+
 		@SuppressWarnings("unchecked")
 		Vector<View> views = database.getViews();
-		
+
 		System.out.println("Starting refresh of database " + database.getServer() + "//" + database.getFilePath());
 		long viewsProcessedCount = 0;
 		long failedRefreshCount = 0;
 
 		for (View view : views) {
 			viewsProcessedCount++;
-			System.out.println("Refreshing view " + view.getName() + " (" +
-			String.format("%,d", view.getEntryCount()) + " entries), view " + viewsProcessedCount
-					+ " of " + String.format("%,d",views.size()));
 
 			try {
+				System.out.println("Refreshing view " + view.getName() + " (" +
+						String.format("%,d", view.getEntryCount()) + " entries), view " + viewsProcessedCount
+						+ " of " + String.format("%,d", views.size()));
 				view.refresh();
 			}
+
 			catch (Exception e) {
-				System.out.println("Unable to refresh view " + view.getName());
+				System.out.println("Unable to refresh view " + view.getName() + " - " + e.getMessage());
 				failedRefreshCount++;
 			}
-			
+
 		}
 
 		System.out.println("Completed refresh of database " + database.getServer() + "//" + database.getFilePath());
