@@ -22,10 +22,10 @@ public class RunIndexer {
 		Database database = session.getDatabase("NDCOLORADO", "TRAINING_THREE\\pp_patients.nsf");
 		refreshDatabase(database);
 
-		database = session.getDatabase("NDDELTALPHA", "2009SYSTEM1\\pp_patients.nsf");
+		database = session.getDatabase("NDDELTAALPHA", "2009SYSTEM1\\pp_patients.nsf");
 		refreshDatabase(database);
 		
-		database = session.getDatabase("NDDELTALPHA", "2009SYSTEM1\\pp_contacts.nsf");
+		database = session.getDatabase("NDDELTAALPHA", "2009SYSTEM1\\pp_contacts.nsf");
 		refreshDatabase(database);
 		
 		System.out.println("*** Process completed ***");
