@@ -20,9 +20,15 @@ public class RunIndexer {
 		System.out.println("Effective user name: " + session.getEffectiveUserName());
 
 		Database database = session.getDatabase("NDCOLORADO", "TRAINING_THREE\\pp_patients.nsf");
-
 		refreshDatabase(database);
 
+		database = session.getDatabase("NDDELTALPHA", "2009SYSTEM1\\pp_patients.nsf");
+		refreshDatabase(database);
+		
+		database = session.getDatabase("NDDELTALPHA", "2009SYSTEM1\\pp_contacts.nsf");
+		refreshDatabase(database);
+		
+		System.out.println("*** Process completed ***");
 	}
 
 	static long refreshDatabase(Database database) throws NotesException {
