@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Vector;
 
 import lotus.domino.Database;
@@ -49,7 +50,7 @@ public class RunIndexer {
 
 		for (View view : views) {
 			viewsProcessedCount++;
-
+			Calendar calendar = Calendar.getInstance();
 			try {
 				System.out.println("Refreshing view " + view.getName() + " (" +
 						String.format("%,d", view.getEntryCount()) + " entries), view " + viewsProcessedCount
@@ -61,7 +62,8 @@ public class RunIndexer {
 				System.out.println("Unable to refresh view " + view.getName() + " - " + e.getMessage());
 				failedRefreshCount++;
 			}
-
+			System.out.println("View " + view.getName() + " took " +
+			((Calendar.getInstance().getTimeInMillis() - calendar.getTimeInMillis()) / 1000) + " secs." );
 		}
 
 		System.out.println("Completed refresh of database " + database.getServer() + "//" + database.getFilePath());
