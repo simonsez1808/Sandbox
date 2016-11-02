@@ -18,10 +18,18 @@ public class Problem0021 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		for (int i = 1; i < 1000; i++) {
+		for (int i = 1; i < 10001; i++) {
 			Number n = new Number(i);
-			System.out.println(i + ": " + n.properDivisors + " Sum: " + n.sumOfProperDivisors);
+			Number m = new Number(n.sumOfProperDivisors);
 			
+			if (m.sumOfProperDivisors == i) {
+				System.out.println("* * * " + i + " * * *");
+				System.out.println(i + ": " + n.properDivisors + " Sum: " + n.sumOfProperDivisors);
+				System.out.println(m.value + ": " + m.sumOfProperDivisors);
+				System.out.println("* * * " + i + " * * *");
+				Long runningTotal;
+
+			}
 		}
 	}
 	
